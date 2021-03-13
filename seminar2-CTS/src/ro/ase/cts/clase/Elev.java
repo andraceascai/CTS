@@ -22,9 +22,13 @@ public class Elev extends Aplicant{
 	
 	@Override
 	public String toString() {
-		return "Elev: Nume=" + nume + ", Prenume=" + prenume + ", Varsta="
-				+ varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nr_proiecte  + ", DenumireProiect="
-				+ Arrays.toString(denumireProiect) + "Clasa=" + clasa + ", Tutore=" + tutore;
+		StringBuilder sb = new StringBuilder("Elev: ");
+		sb.append(super.toString())
+		  .append("Clasa=")
+		  .append(clasa)
+		  .append(", Tutore=")
+		  .append(tutore);
+		return sb.toString();
 	}
 	
 	public Elev() {
@@ -45,7 +49,7 @@ public class Elev extends Aplicant{
 	}
 	@Override
 	public void afisareSumaFinantata() {
-		super.compunereStringPentruSumaFinantata(this.sumaFinantata, "Elevul");
+	System.out.println(super.compunereStringPentruSumaFinantata(this.sumaFinantata, "Elevul"));	
 		
 	}
 	

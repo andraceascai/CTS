@@ -8,21 +8,30 @@ import ro.ase.cts.clase.readers.ReaderAplicanti;
 import ro.ase.cts.clase.readers.ReaderElev;
 import ro.ase.cts.clase.Angajat;
 import ro.ase.cts.clase.Aplicant;
+import ro.ase.cts.clase.Proiect;
 
 public class Program {
 
-	public static List<Aplicant> citesteAplicanti(ReaderAplicanti reader) throws FileNotFoundException{
-		return reader.readAplicanti();
+	public static List<Aplicant>citesteAplicanti(ReaderAplicanti reader) throws FileNotFoundException{
+		List<Aplicant>listaAplicanti=reader.readAplicanti();
+		return listaAplicanti;
+		
+	}
+	
+	public static void afisareAplicanti(List<Aplicant> listaAplicanti) {
+		Proiect proiect = new Proiect(81);
+		for(Aplicant aplicant:listaAplicanti){
+			System.out.println(aplicant.toString());
+			aplicant.afisareSumaFinantata();
+			aplicant.afiseazaStatusPeProiect(proiect);
+		}
 	}
 	
 	public static void main(String[] args) {
 		List<Aplicant> listaAplicanti;
 		try {
 			listaAplicanti = citesteAplicanti(new ReaderAngajat("angajati.txt"));
-			for(Aplicant aplicant:listaAplicanti){
-					System.out.println(aplicant.toString());
-					aplicant.afisareSumaFinantata();
-				}
+			afisareAplicanti(listaAplicanti);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

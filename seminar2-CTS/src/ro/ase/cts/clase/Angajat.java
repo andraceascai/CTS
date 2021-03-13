@@ -31,14 +31,18 @@ public class Angajat extends Aplicant{
 	
 	@Override
 	public String toString() {
-		return "Angajat: Nume=" + nume + ", Prenume=" + prenume
-				+ ", Varsta=" + varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nr_proiecte + ", DenumireProiect="
-				+ Arrays.toString(denumireProiect) + "Ocupatie=" + ocupatie + ", salariu=" + salariu;
+		StringBuilder sb = new StringBuilder("Angajat: ");
+		sb.append(super.toString())
+		  .append("Ocupatie=")
+		  .append(ocupatie)
+		  .append(", salariu=")
+		  .append(salariu);
+		return sb.toString();
 	}
 	
 	@Override
 	public void afisareSumaFinantata() {
-		super.compunereStringPentruSumaFinantata(this.sumaFinantata, "Angajatul");
+	   System.out.println(super.compunereStringPentruSumaFinantata(this.sumaFinantata, "Angajatul"));
 	}
 	
 }
