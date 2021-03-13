@@ -63,12 +63,17 @@ public abstract class Aplicant{
 		this.denumireProiect = denumireProiect;
 	}
 	
+	public String[] getDenumireProiect() {
+		return denumireProiect;
+	}
+
+	public void setDenumireProiect(String[] denumireProiect, int nrProiecte) {
+		this.denumireProiect = denumireProiect;
+		this.nr_proiecte = nrProiecte;
+	}
+
 	public int getNr_proiecte() {
 		return nr_proiecte;
-	}
-	
-	public void setNr_proiecte(int nr_proiecte) {
-		this.nr_proiecte = nr_proiecte;
 	}
 	
 	public abstract void afisareSumaFinantata();
