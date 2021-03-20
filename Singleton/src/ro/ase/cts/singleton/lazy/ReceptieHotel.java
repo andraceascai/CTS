@@ -24,7 +24,7 @@ public class ReceptieHotel {
 	public void setNumeHotel(String numeHotel) {
 		this.numeHotel = numeHotel;
 	}
-
+	//thread safe
 	public static synchronized ReceptieHotel getInstanta(String numeReceptioner, int etaj, String numeHotel) {
 		if(instanta == null) {
 			instanta = new ReceptieHotel(numeReceptioner,etaj,numeHotel);
