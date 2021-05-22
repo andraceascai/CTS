@@ -7,7 +7,7 @@ import org.junit.Test;
 import ro.ase.cts.unittest.Student;
 
 public class StudentTests {
-
+	
 	@Test
 	public void testConstructorCuParametrii() {
 		String nume = "Gigel";
@@ -69,4 +69,47 @@ public class StudentTests {
 		assertFalse(student.areRestante());
 	}
 
+	@Test
+	public void testSetNume() {
+		Student student = new Student();
+		String nume = "Gigel";
+		student.setNume(nume);
+		assertEquals(nume, student.getNume());
+	}
+	
+	@Test (expected = IndexOutOfBoundsException.class)
+	public void testGetNoteAruncaExceptii() {
+		Student student = new Student();
+		student.getNota(-1);	
+	}
+	
+	@Test
+	public void testGetNoteAruncaExceptiiJunit3() {
+		Student student = new Student();
+		//1	
+		try {
+			//2
+			student.getNota(-1);
+			//3 -nu este executata
+			fail("Metoda nu arunca nicio exceptie");
+		}catch(IndexOutOfBoundsException exception){
+			//4
+		}catch(Exception exception) {
+			//5 -nu este executata
+			fail("Metoda nu arunca o exceptie de tipul IndexOutOfBoundsException, ci alt tip");
+		}
+		//6
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testNoteNegative() {
+		Student student = new Student();
+		student.adaugaNota(-4);
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testNotePreaMari() {
+		Student student = new Student();
+		student.adaugaNota(16);
+	}
 }
